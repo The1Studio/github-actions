@@ -24,6 +24,5 @@ runs:
   using: "composite"
   steps:
     - shell: |
-        docker build -t npm-publish ${{ github.action_path }};
-        docker run --rm -v ${{ github.workspace }}/${{ inputs.package }}:/package npm-publish ${{ inputs.debug }} ${{ inputs.username }} ${{ inputs.password }} ${{ inputs.email }} ${{ inputs.registry }} {0}
+        docker build -t npm-publish ${{ github.action_path }}; docker run --rm -v ${{ github.workspace }}/${{ inputs.package }}:/package npm-publish ${{ inputs.debug }} ${{ inputs.username }} ${{ inputs.password }} ${{ inputs.email }} ${{ inputs.registry }} {0}
       run: ""
