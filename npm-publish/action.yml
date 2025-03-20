@@ -20,5 +20,5 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - shell: docker run --rm trieudinhquang2002/npm-publish ${{ inputs.debug }} ${{ inputs.username }} ${{ inputs.password }} ${{ inputs.email }} ${{ inputs.registry }}
+    - shell: docker run --rm trieudinhquang2002/npm-publish ${{ inputs.debug }} ${{ inputs.username }} ${{ inputs.password }} ${{ inputs.email }} ${{ inputs.registry }} {0}
       run: ""
