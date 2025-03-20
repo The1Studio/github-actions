@@ -1,0 +1,28 @@
+name: "NPM Publish Action"
+description: "This action will deploy your package to NPM Custom Registry"
+author: "GitHub"
+inputs:
+  debug:
+    description: "npm debug level"
+    default: "-ddd"
+  username:
+    description: "NPM username"
+    required: true
+  password:
+    description: "NPM password"
+    required: true
+  email:
+    description: "NPM email"
+    required: true
+  registry:
+    description: "NPM registry"
+    required: true
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  args:
+    - ${{ inputs.debug }}
+    - ${{ inputs.username }}
+    - ${{ inputs.password }}
+    - ${{ inputs.email }}
+    - ${{ inputs.registry }}
