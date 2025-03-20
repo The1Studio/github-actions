@@ -20,6 +20,9 @@ inputs:
   package:
     description: "Package path"
     default: ""
+  tag:
+    description: "Tag"
+    default: "latest"
 runs:
   using: "composite"
   steps:
@@ -27,5 +30,5 @@ runs:
       shell: docker build -t npm-publish --build-arg IGNORE_THIS={0} ${{ github.action_path }}
       run: ""
     - name: Publish to NPM
-      shell: docker run --rm -v ${{ github.workspace }}/${{ inputs.package }}:/package npm-publish ${{ inputs.debug }} ${{ inputs.username }} ${{ inputs.password }} ${{ inputs.email }} ${{ inputs.registry }} {0}
+      shell: docker run --rm -v ${{ github.workspace }}/${{ inputs.package }}:/package npm-publish ${{ inputs.debug }} ${{ inputs.username }} ${{ inputs.password }} ${{ inputs.email }} ${{ inputs.registry }} ${{ inputs.package }} ${{ inputs.tag }} {0}
       run: ""
